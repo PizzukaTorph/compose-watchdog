@@ -1,0 +1,25 @@
+{
+  "name": "compose-watchdog",
+  "version": "0.1.0",
+  "description": "Docker container health monitor with Telegram, Email and Webhook notifications",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "dockerode": "^4.0.2",
+    "nodemailer": "^6.9.13",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/dockerode": "^3.3.28",
+    "@types/nodemailer": "^6.4.14",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.12.0",
+    "typescript": "^5.4.3",
+    "ts-node": "^10.9.2"
+  }
+}

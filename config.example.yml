@@ -1,0 +1,31 @@
+# compose-watchdog config
+# Copy to config.yml and fill in your values.
+
+# Seconds between each check
+interval: 30
+
+# Seconds before re-notifying the same container if still down
+cooldown: 300
+
+# Optional: only watch containers with this label (e.g. "watchdog.enable=true")
+# label_filter: "watchdog.enable=true"
+
+notifiers:
+  telegram:
+    token: "your-bot-token"
+    chat_id: "your-chat-id"
+
+  email:
+    smtp_host: smtp.example.com
+    smtp_port: 587
+    smtp_secure: false
+    smtp_user: user@example.com
+    smtp_pass: yourpassword
+    from: watchdog@example.com
+    to: you@example.com
+
+  webhook:
+    url: https://hooks.example.com/alert
+    method: POST
+    headers:
+      Authorization: "Bearer your-token"

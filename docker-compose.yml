@@ -1,0 +1,28 @@
+services:
+  compose-watchdog:
+    image: compose-watchdog:latest
+    build: .
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config.yml:/config/config.yml:ro
+    environment:
+      # Optional: override config file values via env vars
+      CHECK_INTERVAL: "30"
+      COOLDOWN: "300"
+      # LABEL_FILTER: "watchdog.enable=true"
+      #
+      # Telegram (alternative to config.yml)
+      # TELEGRAM_TOKEN: "your-bot-token"
+      # TELEGRAM_CHAT_ID: "your-chat-id"
+      #
+      # Email (alternative to config.yml)
+      # SMTP_HOST: "smtp.example.com"
+      # SMTP_PORT: "587"
+      # SMTP_USER: "user@example.com"
+      # SMTP_PASS: "password"
+      # EMAIL_FROM: "watchdog@example.com"
+      # EMAIL_TO: "you@example.com"
+      #
+      # Webhook (alternative to config.yml)
+      # WEBHOOK_URL: "https://hooks.example.com/alert"
